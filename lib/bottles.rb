@@ -6,14 +6,8 @@ class Bottles
     verses(99, 0)
   end
 
-  def verses(from, to)
-    verses = ''
-    while from >= to
-      extraline = from == to ? '' : "\n"
-      verses += verse(from) + extraline
-      from -= 1
-    end
-    verses
+  def verses(hi, lo)
+    hi.downto(lo).map{ |n| verse(n)  }.join("\n")
   end
 
   def verse(number)
@@ -26,10 +20,8 @@ class Bottles
   end
 
   def bottles(number, initial=false)
-    if number > 1
-      "#{number} bottles"
-    elsif number == 1
-      "#{number} bottle"
+    if number >= 1
+      "#{number} bottle#{"s" if number != 1}"
     else
       initial ? 'No more bottles' : 'no more bottles'
     end
