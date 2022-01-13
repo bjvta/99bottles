@@ -25,7 +25,7 @@ class Bottles
     VERSE
   end
 
-  def bottles(number, initial: false)
+  def bottles(number, initial=false)
     if number > 1
       "#{number} bottles"
     elsif number == 1
